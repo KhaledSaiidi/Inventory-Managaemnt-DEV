@@ -1,0 +1,5 @@
+1) Keycloak starter -> .\kc.bat start-dev --http-port=8181
+
+1) startzookeeper -> .\bin\windows\zookeeper-server-start .\config\zookeeper.properties
+
+2) start kafka server -> .\bin\windows\kafka-server-start.bat .\config\server.properties

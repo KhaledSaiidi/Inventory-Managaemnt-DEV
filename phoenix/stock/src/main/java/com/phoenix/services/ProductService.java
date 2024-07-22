@@ -18,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.transaction.Transactional;
 import lombok.Data;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -318,6 +319,12 @@ public class ProductService implements IProductService{
             List<ProductDtosCsvRepresentation> csvLines = csvToBean.parse();
             Stock stock = iStockRepository.findById(stockReference)
                     .orElseThrow(() -> new RuntimeException("Stock not found for reference: " + stockReference));
+            Map<String, String> usersMap = webClientBuilder.build().get()
+                    .uri("http://keycloakuser-service/people/getAllUsersMap")
+                    .retrieve()
+                    .bodyToMono(new ParameterizedTypeReference<Map<String, String>>() {})
+                    .block();
+
             for (ProductDtosCsvRepresentation csvLine : csvLines) {
                 if (!csvLine.getSerialNumber().isEmpty() && !csvLine.getSerialNumber().equals("EOF")) {
                     Optional<Product> optionalProduct = iProductRepository.findById(csvLine.getSerialNumber());
@@ -329,11 +336,20 @@ public class ProductService implements IProductService{
                         AgentProdDto newManager = new AgentProdDto();
                         AgentProdDto newAgent = new AgentProdDto();
                         if (csvLine.getSeniorAdvisor() != null) {
-                            String username = getFirstName(csvLine.getSeniorAdvisor());
-                            String lastname = getLastName(csvLine.getSeniorAdvisor());
-                            newManager.setFirstname(username);
+                            String firstName = getFirstName(csvLine.getSeniorAdvisor());
+                            String lastName = getLastName(csvLine.getSeniorAdvisor());
+                            String fullName = firstName + lastName;
+                            String username = firstName;
+                            if (usersMap != null) {
+                                for (Map.Entry<String, String> entry : usersMap.entrySet()) {
+                                if (entry.getValue().equals(fullName)) {
+                                    username = entry.getKey();
+                                }
+                                }
+                            }
+                            newManager.setFirstname(firstName);
                             newManager.setUsername(username);
-                            newManager.setLastname(lastname);
+                            newManager.setLastname(lastName);
                             newManager.setDuesoldDate(stock.getDueDate());
                             newManager.setReceivedDate(stock.getReceivedDate());
                             newManager.setSeniorAdvisor(true);
