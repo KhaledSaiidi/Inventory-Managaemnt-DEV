@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/IUserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/IUserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/services/IUserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/services/IUserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/services/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/services/UserServices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +141,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KeycloakUser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="KeycloakUser" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.phoenix.KeycloakUser" />
       <module name="keycloakuser" />
       <extension name="coverage">
@@ -184,8 +191,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Stock" />
-        <item itemvalue="Application.NotificationApplication" />
         <item itemvalue="Application.KeycloakUser" />
+        <item itemvalue="Application.NotificationApplication" />
         <item itemvalue="Application.Gateway" />
         <item itemvalue="Application.DiscoveryServer" />
       </list>

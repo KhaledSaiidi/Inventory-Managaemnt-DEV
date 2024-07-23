@@ -319,11 +319,12 @@ public class ProductService implements IProductService{
             List<ProductDtosCsvRepresentation> csvLines = csvToBean.parse();
             Stock stock = iStockRepository.findById(stockReference)
                     .orElseThrow(() -> new RuntimeException("Stock not found for reference: " + stockReference));
-            Map<String, String> usersMap = webClientBuilder.build().get()
-                    .uri("http://keycloakuser-service/people/getAllUsersMap")
+             Map<String, String> usersMap = webClientBuilder.build().get()
+                    .uri("http://keycloakuser-service/people/usersMap")
                     .retrieve()
                     .bodyToMono(new ParameterizedTypeReference<Map<String, String>>() {})
                     .block();
+            System.out.println("Map is :" + usersMap);
 
             for (ProductDtosCsvRepresentation csvLine : csvLines) {
                 if (!csvLine.getSerialNumber().isEmpty() && !csvLine.getSerialNumber().equals("EOF")) {
@@ -336,14 +337,15 @@ public class ProductService implements IProductService{
                         AgentProdDto newManager = new AgentProdDto();
                         AgentProdDto newAgent = new AgentProdDto();
                         if (csvLine.getSeniorAdvisor() != null) {
-                            String firstName = getFirstName(csvLine.getSeniorAdvisor());
-                            String lastName = getLastName(csvLine.getSeniorAdvisor());
+                            String firstName = getFirstName(csvLine.getSeniorAdvisor().toLowerCase());
+                            String lastName = getLastName(csvLine.getSeniorAdvisor().toLowerCase());
                             String fullName = firstName + lastName;
                             String username = firstName;
                             if (usersMap != null) {
                                 for (Map.Entry<String, String> entry : usersMap.entrySet()) {
                                 if (entry.getValue().equals(fullName)) {
                                     username = entry.getKey();
+                                    System.out.println("The user found from Map: <" + username + ", " + fullName +">");
                                 }
                                 }
                             }
@@ -359,11 +361,20 @@ public class ProductService implements IProductService{
 
                         }
                         if (csvLine.getAgentAssigned() != null) {
-                            String username = getFirstName(csvLine.getAgentAssigned());
-                            String lastname = getLastName(csvLine.getAgentAssigned());
-                            newAgent.setFirstname(username);
+                            String firstName = getFirstName(csvLine.getAgentAssigned());
+                            String lastName = getLastName(csvLine.getAgentAssigned());
+                            String fullName = firstName + lastName;
+                            String username = firstName;
+                            if (usersMap != null) {
+                                for (Map.Entry<String, String> entry : usersMap.entrySet()) {
+                                    if (entry.getValue().equals(fullName)) {
+                                        username = entry.getKey();
+                                    }
+                                }
+                            }
+                            newAgent.setFirstname(firstName);
                             newAgent.setUsername(username);
-                            newAgent.setLastname(lastname);
+                            newAgent.setLastname(lastName);
                             newAgent.setDuesoldDate(stock.getDueDate());
                             newAgent.setReceivedDate(stock.getReceivedDate());
                             newAgent.setSeniorAdvisor(false);

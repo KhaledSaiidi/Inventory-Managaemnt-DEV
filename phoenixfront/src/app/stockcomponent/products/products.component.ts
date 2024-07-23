@@ -235,10 +235,14 @@ onPageChange(newPage: number): void {
       );
     }
 
+    loadingForUpload: boolean = false;
+
     uploadFile(): void {
       if (this.selectedFile) {
+        this.loadingForUpload = true;
         this.stockservice.addProdbyuploadFile(this.selectedFile, this.stockreference).subscribe(
           result => {
+            this.loadingForUpload = false;
             location.reload();
           },
           error => {

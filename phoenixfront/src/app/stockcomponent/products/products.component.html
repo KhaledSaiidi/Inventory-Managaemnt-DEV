@@ -1,4 +1,5 @@
 <app-base></app-base>
+<div class="container" [class.blur]="loadingForUpload">
 <div class="listeequipes-container"> 
   <div class="search-wrapper">
   <div class="search-container">
@@ -463,4 +464,8 @@
            </div>
     </div>
     
+</div>
+</div>
+<div *ngIf="loadingForUpload" class="spinner-overlay">
+  <div class="spinner"></div>
 </div>
