@@ -16,6 +16,8 @@ public class ProductDtosCsvRepresentation {
 
     @CsvBindByName(column = "Shipped ESN")
     private String shippedserialNumber;
+    @CsvBindByName(column = "COMMENTS")
+    private String comments;
 
     @CsvBindByName(column = "BOX #")
     private String boxNumber;
