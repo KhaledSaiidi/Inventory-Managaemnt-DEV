@@ -5,38 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/dto/ParsedSoldProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/model/ProductDtosCsvRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/model/ProductDtosCsvRepresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/model/SerialNumbersCsvRepresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/model/SerialNumbersCsvRepresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IsoldProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IsoldProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/SoldProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/SoldProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/ProductDtosCsvRepresentation$ProductDtosCsvRepresentationBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/ProductDtosCsvRepresentation$ProductDtosCsvRepresentationBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/ProductDtosCsvRepresentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/ProductDtosCsvRepresentation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/SerialNumbersCsvRepresentation$SerialNumbersCsvRepresentationBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/SerialNumbersCsvRepresentation$SerialNumbersCsvRepresentationBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/SerialNumbersCsvRepresentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/model/SerialNumbersCsvRepresentation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/IProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/IProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/IsoldProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/IsoldProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/base/base.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/base/base.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/base/base.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/base/base.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/returnbyscan/returnbyscan.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/returnbyscan/returnbyscan.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/returnbyscan/returnbyscan.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/returnbyscan/returnbyscan.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/sellprod/sellprod.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/sellprod/sellprod.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/sellprod/sellprod.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/sellprod/sellprod.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/services/stock.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/services/stock.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/addstock/addstock.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/addstock/addstock.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stockinfo/stockinfo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stockinfo/stockinfo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stocks/stocks.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stocks/stocks.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stocks/stocks.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stocks/stocks.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/mapper/ReclamationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/mapper/ReclamationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/ReclamationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/ReclamationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/target/classes/com/phoenix/mapper/ReclamationMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/classes/com/phoenix/mapper/ReclamationMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/target/classes/com/phoenix/services/ReclamationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/classes/com/phoenix/services/ReclamationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,8 +190,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Stock" />
         <item itemvalue="Application.NotificationApplication" />
+        <item itemvalue="Application.Stock" />
         <item itemvalue="Application.KeycloakUser" />
         <item itemvalue="Application.Gateway" />
         <item itemvalue="Application.DiscoveryServer" />
@@ -254,5 +231,15 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../unistock" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.StreamCorruptedException" package="java.io" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
