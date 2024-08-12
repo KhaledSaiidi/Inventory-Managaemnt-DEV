@@ -5,65 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/keycloakdb.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakdb.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/IUserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/IUserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/services/UserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/services/UserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/classes/com/phoenix/services/UserServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/wait-for-config.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/wait-for-eureka.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/wait-for-gateway.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/wait-for-keycloak.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/ReclamationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/ReclamationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/wait-for-config.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/wait-for-eureka.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/wait-for-gateway.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/wait-for-keycloak.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IAgentProdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IAgentProdRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/SoldProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/SoldProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/wait-for-config.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/wait-for-eureka.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/wait-for-gateway.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/wait-for-keycloak.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/add-client/add-client.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/add-client/add-client.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/addcampaign/addcampaign.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/addcampaign/addcampaign.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/archived/archived.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/archived/archived.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/archived/archived.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/archived/archived.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/campaigns/campaigns.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/campaigns/campaigns.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/client/client.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/client/client.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/dashboard/dashboard.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/dashboard/dashboard.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/returnbyscan/returnbyscan.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/returnbyscan/returnbyscan.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/sellprod/sellprod.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/sellprod/sellprod.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/update-campaign/update-campaign.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/update-campaign/update-campaign.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/agents/agents.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/agents/agents.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/agents/agents.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/agents/agents.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/agents/agents.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/agents/agents.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/services/stock.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/services/stock.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/addstock/addstock.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/addstock/addstock.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/navigateprods/navigateprods.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/navigateprods/navigateprods.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/prodarchived/prodarchived.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/prodarchived/prodarchived.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stockarchived/stockarchived.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stockarchived/stockarchived.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stockinfo/stockinfo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stockinfo/stockinfo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stocks/stocks.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/stocks/stocks.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +112,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ConfigurationServer">
+  <component name="RunManager" selected="Application.Stock">
     <configuration name="ConfigurationServer" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -240,8 +197,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NotificationApplication" />
         <item itemvalue="Application.Stock" />
+        <item itemvalue="Application.NotificationApplication" />
         <item itemvalue="Application.KeycloakUser" />
         <item itemvalue="Application.Gateway" />
         <item itemvalue="Application.DiscoveryServer" />
