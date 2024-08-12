@@ -187,8 +187,8 @@ public class Controller {
 
     @PostMapping("/stockcheck/{stockReference}")
     public ResponseEntity<String> checkProducts(@PathVariable String stockReference, @RequestBody Set<String> prodsRef) {
-            iProductService.checkProds(stockReference, prodsRef);
-            return ResponseEntity.ok("Products checked successfully.");
+        iProductService.checkProds(stockReference, prodsRef);
+        return ResponseEntity.ok("Products checked successfully.");
     }
 
 

@@ -291,11 +291,11 @@ getSoldProductsByusername(username: string, page: number, size: number): Observa
 
 
 
-uploadcsvTocheckSell(file: File, stockReference: string): Observable<void> {
+uploadcsvTocheckSell(file: File, stockReference: string): Observable<string[]> {
   const formData: FormData = new FormData();
   formData.append('file', file, file.name);
 
-  return this.http.post<void>(this.apiUrl + "/uploadcsvTocheckSell/" + stockReference , formData);
+  return this.http.post<string[]>(this.apiUrl + "/uploadcsvTocheckSell/" + stockReference , formData);
 }
 
 getProductsInfo(stockReference: string): Observable<any> {
@@ -538,7 +538,6 @@ getArchivedSoldProductsPaginatedBystockReference(stockReference: string, page: n
       })
     );
 }
-
 
 getAllProductsPaginated(page: number, size: number, searchTerm: String): Observable<ProductPage> {
   const apiUrl = this.apiUrl + '/getAllProductsPaginated' + '?page=' + page + '&size=' + size + '&searchTerm=' + searchTerm;

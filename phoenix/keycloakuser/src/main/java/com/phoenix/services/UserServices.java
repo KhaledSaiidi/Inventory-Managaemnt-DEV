@@ -9,7 +9,6 @@ import com.phoenix.mapper.UserMapper;
 import com.phoenix.model.UserMysql;
 import com.phoenix.repository.UserMysqlRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;

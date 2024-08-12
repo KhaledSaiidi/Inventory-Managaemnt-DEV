@@ -79,7 +79,6 @@ const appRoute: Routes = [
   {path:'stockarchive', component: StockarchivedComponent, canActivate: [AuthGuard], data: { roles: ["IMANAGER" , "MANAGER" ] }},
   {path:'archivedproducts', component: ProdarchivedComponent, canActivate: [AuthGuard], data: { roles: ["IMANAGER" , "MANAGER" ] }},
   {path:'navigateprods', component: NavigateprodsComponent, canActivate: [AuthGuard]},
-
   { path: '**', pathMatch: 'full', redirectTo: '/dashboard' },
 ]
 

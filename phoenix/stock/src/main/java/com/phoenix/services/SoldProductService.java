@@ -66,34 +66,34 @@ public class SoldProductService  implements IsoldProductService{
         if(optionalProduct.isPresent()){
 
 
-        Product product = optionalProduct.get();
-        SoldProduct soldProduct = iSoldTProductMapper.tosoldProduct(product);
+            Product product = optionalProduct.get();
+            SoldProduct soldProduct = iSoldTProductMapper.tosoldProduct(product);
 
-        AgentProd agentsoldProd = iAgentProdMapper.toEntity(agentsoldProdDto);
-        if(product.getAgentProd() != null) {
-            LocalDate affectaiondate = product.getAgentProd().getAffectaiondate();
-            if (affectaiondate != null) {
-                agentsoldProd.setAffectaiondate(product.getAgentProd().getAffectaiondate());
+            AgentProd agentsoldProd = iAgentProdMapper.toEntity(agentsoldProdDto);
+            if(product.getAgentProd() != null) {
+                LocalDate affectaiondate = product.getAgentProd().getAffectaiondate();
+                if (affectaiondate != null) {
+                    agentsoldProd.setAffectaiondate(product.getAgentProd().getAffectaiondate());
+                }
+                LocalDate duesoldDate = product.getAgentProd().getDuesoldDate();
+                if (duesoldDate != null) {
+                    agentsoldProd.setDuesoldDate(product.getAgentProd().getDuesoldDate());
+                }
+                LocalDate receivedDate = product.getAgentProd().getReceivedDate();
+                if (receivedDate != null) {
+                    agentsoldProd.setReceivedDate(product.getAgentProd().getReceivedDate());
+                }
+
             }
-            LocalDate duesoldDate = product.getAgentProd().getDuesoldDate();
-            if (duesoldDate != null) {
-                agentsoldProd.setDuesoldDate(product.getAgentProd().getDuesoldDate());
-            }
-            LocalDate receivedDate = product.getAgentProd().getReceivedDate();
-            if (receivedDate != null) {
-                agentsoldProd.setReceivedDate(product.getAgentProd().getReceivedDate());
-            }
+            iAgentProdRepository.save(agentsoldProd);
 
-        }
-        iAgentProdRepository.save(agentsoldProd);
+            soldProduct.setCheckedSell(false);
+            soldProduct.setAgentWhoSold(agentsoldProd);
+            soldProduct.setSoldDate(soldDate);
 
-        soldProduct.setCheckedSell(false);
-        soldProduct.setAgentWhoSold(agentsoldProd);
-        soldProduct.setSoldDate(soldDate);
-
-        iProductRepository.delete(product);
-        iSoldProductRepository.save(soldProduct);
-        sendNotificationForSell (soldProduct);
+            iProductRepository.delete(product);
+            iSoldProductRepository.save(soldProduct);
+            sendNotificationForSell (soldProduct);
         }
     }
 
@@ -111,7 +111,7 @@ public class SoldProductService  implements IsoldProductService{
         StockEvent stockEvent = new StockEvent();
         stockEvent.setReclamationDtos(reclamationDtos);
         stockProducer.sendMessage(stockEvent);
-        }
+    }
 
     @Override
     public Page<SoldProductDto> getSoldProductsPaginatedBystockReference(Pageable pageable, String stockreference, String searchTerm) {
@@ -249,9 +249,9 @@ public class SoldProductService  implements IsoldProductService{
         if (stockOptional.isEmpty() || parsedSoldProducts.isEmpty()) {
             return;
         }
-            Stock stock = stockOptional.get();
-            List<SoldProduct> soldProducts = iSoldProductRepository.findByStock(stock);
-            List<Product> products = iProductRepository.findByStock(stock);
+        Stock stock = stockOptional.get();
+        List<SoldProduct> soldProducts = iSoldProductRepository.findByStock(stock);
+        List<Product> products = iProductRepository.findByStock(stock);
         Map<String, String> usersMap = webClientBuilder.build().get()
                 .uri("http://keycloakuser-service/people/usersMap")
                 .retrieve()
@@ -266,7 +266,7 @@ public class SoldProductService  implements IsoldProductService{
         for (ParsedSoldProducts parsedProduct : parsedSoldProducts) {
             processParsedProduct(parsedProduct, soldProductMap, productMap, usersMap);
         }
-}
+    }
 
     private List<ParsedSoldProducts> parseCsvCheck(MultipartFile file) throws IOException {
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
@@ -335,28 +335,28 @@ public class SoldProductService  implements IsoldProductService{
         if (isProductActive(parsedProduct.getStatus())) {
             String username = resolveUsername(parsedProduct.getAgent(), usersMap);
             AgentProdDto agentsoldProdDto = createAgentProdDto(parsedProduct, username);
-                SoldProduct soldProduct = iSoldTProductMapper.tosoldProduct(product);
-                AgentProd agentsoldProd = iAgentProdMapper.toEntity(agentsoldProdDto);
-                if(product.getAgentProd() != null) {
-                    LocalDate affectaiondate = product.getAgentProd().getAffectaiondate();
-                    if (affectaiondate != null) {
-                        agentsoldProd.setAffectaiondate(product.getAgentProd().getAffectaiondate());
-                    }
-                    LocalDate duesoldDate = product.getAgentProd().getDuesoldDate();
-                    if (duesoldDate != null) {
-                        agentsoldProd.setDuesoldDate(product.getAgentProd().getDuesoldDate());
-                    }
-                    LocalDate receivedDate = product.getAgentProd().getReceivedDate();
-                    if (receivedDate != null) {
-                        agentsoldProd.setReceivedDate(product.getAgentProd().getReceivedDate());
-                    }
+            SoldProduct soldProduct = iSoldTProductMapper.tosoldProduct(product);
+            AgentProd agentsoldProd = iAgentProdMapper.toEntity(agentsoldProdDto);
+            if(product.getAgentProd() != null) {
+                LocalDate affectaiondate = product.getAgentProd().getAffectaiondate();
+                if (affectaiondate != null) {
+                    agentsoldProd.setAffectaiondate(product.getAgentProd().getAffectaiondate());
                 }
-                iAgentProdRepository.save(agentsoldProd);
-                soldProduct.setCheckedSell(true);
-                soldProduct.setAgentWhoSold(agentsoldProd);
-                soldProduct.setSoldDate(parsedProduct.getCheckOut());
-                iProductRepository.delete(product);
-                iSoldProductRepository.save(soldProduct);
+                LocalDate duesoldDate = product.getAgentProd().getDuesoldDate();
+                if (duesoldDate != null) {
+                    agentsoldProd.setDuesoldDate(product.getAgentProd().getDuesoldDate());
+                }
+                LocalDate receivedDate = product.getAgentProd().getReceivedDate();
+                if (receivedDate != null) {
+                    agentsoldProd.setReceivedDate(product.getAgentProd().getReceivedDate());
+                }
+            }
+            iAgentProdRepository.save(agentsoldProd);
+            soldProduct.setCheckedSell(true);
+            soldProduct.setAgentWhoSold(agentsoldProd);
+            soldProduct.setSoldDate(parsedProduct.getCheckOut());
+            iProductRepository.delete(product);
+            iSoldProductRepository.save(soldProduct);
         }
     }
 
@@ -655,6 +655,10 @@ public class SoldProductService  implements IsoldProductService{
         for (int i = 0; i < soldProductDtos.size(); i++) {
             SoldProduct soldproduct = soldproducts.get(i);
             SoldProductDto soldproductDto = soldProductDtos.get(i);
+            if (soldproduct.getStock() != null) {
+                StockDto stockDto = iStockMapper.toDto(soldproduct.getStock());
+                soldproductDto.setStock(stockDto);
+            }
             if(soldproduct.getAgentAssociatedProd() != null){
                 AgentProdDto agentProdDto = iAgentProdMapper.toDto(soldproduct.getAgentAssociatedProd());
                 soldproductDto.setAgentAssociatedProd(agentProdDto);

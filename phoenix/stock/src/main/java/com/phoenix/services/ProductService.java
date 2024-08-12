@@ -85,7 +85,7 @@ public class ProductService implements IProductService{
         product.setStock(stock);
         iProductRepository.save(product);
         if(product.getPrice() != null) {
-          stock.setStockValue(stock.getStockValue().add(product.getPrice()));
+            stock.setStockValue(stock.getStockValue().add(product.getPrice()));
         }
         stock.setChecked(false);
         iStockRepository.save(stock);
@@ -116,14 +116,14 @@ public class ProductService implements IProductService{
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
             ProductDto productDto = productDtos.get(i);
-                if (product.getAgentProd() != null) {
-                    AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
-                    productDto.setAgentProd(agentProdDto);
-                }
-                if (product.getManagerProd() != null) {
-                    AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
-                    productDto.setManagerProd(managerProdDto);
-                }
+            if (product.getAgentProd() != null) {
+                AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
+                productDto.setAgentProd(agentProdDto);
+            }
+            if (product.getManagerProd() != null) {
+                AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
+                productDto.setManagerProd(managerProdDto);
+            }
         }
         if (!searchTerm.isEmpty()) {
             productDtos = productDtos.parallelStream()
@@ -320,7 +320,7 @@ public class ProductService implements IProductService{
             List<ProductDtosCsvRepresentation> csvLines = csvToBean.parse();
             Stock stock = iStockRepository.findById(stockReference)
                     .orElseThrow(() -> new RuntimeException("Stock not found for reference: " + stockReference));
-             Map<String, String> usersMap = webClientBuilder.build().get()
+            Map<String, String> usersMap = webClientBuilder.build().get()
                     .uri("http://keycloakuser-service/people/usersMap")
                     .retrieve()
                     .bodyToMono(new ParameterizedTypeReference<Map<String, String>>() {})
@@ -343,9 +343,9 @@ public class ProductService implements IProductService{
                             String username = firstName;
                             if (usersMap != null) {
                                 for (Map.Entry<String, String> entry : usersMap.entrySet()) {
-                                if (entry.getValue().equals(fullName)) {
-                                    username = entry.getKey();
-                                }
+                                    if (entry.getValue().equals(fullName)) {
+                                        username = entry.getKey();
+                                    }
                                 }
                             }
                             newManager.setFirstname(firstName);
@@ -383,10 +383,10 @@ public class ProductService implements IProductService{
                         }
                         iAgentProdService.assignAgentandManager(newAgent, newManager);
                     }
-                    }
                 }
             }
         }
+    }
 
 
     private void updateStockCheckedStatus(String stockReference, boolean checkStatus) {
@@ -442,24 +442,24 @@ public class ProductService implements IProductService{
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
             ProductDto productDto = productDtos.get(i);
-                if (product.getStock() != null) {
-                    StockDto stockDto = iStockMapper.toDto(product.getStock());
-                    Campaigndto campaigndto = webClientBuilder.build().get()
-                            .uri("http://keycloakuser-service/people/getCampaignByReference/{campaignReference}", product.getStock().getCampaignRef())
-                            .retrieve()
-                            .bodyToMono(Campaigndto.class)
-                            .block();
-                    stockDto.setCampaigndto(campaigndto);
-                    productDto.setStock(stockDto);
-                }
-                if (product.getAgentProd() != null) {
-                    AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
-                    productDto.setAgentProd(agentProdDto);
-                }
-                if (product.getManagerProd() != null) {
-                    AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
-                    productDto.setManagerProd(managerProdDto);
-                }
+            if (product.getStock() != null) {
+                StockDto stockDto = iStockMapper.toDto(product.getStock());
+                Campaigndto campaigndto = webClientBuilder.build().get()
+                        .uri("http://keycloakuser-service/people/getCampaignByReference/{campaignReference}", product.getStock().getCampaignRef())
+                        .retrieve()
+                        .bodyToMono(Campaigndto.class)
+                        .block();
+                stockDto.setCampaigndto(campaigndto);
+                productDto.setStock(stockDto);
+            }
+            if (product.getAgentProd() != null) {
+                AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
+                productDto.setAgentProd(agentProdDto);
+            }
+            if (product.getManagerProd() != null) {
+                AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
+                productDto.setManagerProd(managerProdDto);
+            }
 
         }
         int pageSize = pageable.getPageSize();
@@ -555,22 +555,22 @@ public class ProductService implements IProductService{
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
             ProductDto productDto = productDtos.get(i);
-                if (product.getAgentProd() != null) {
-                    AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
-                    productDto.setAgentProd(agentProdDto);
-                }
-                if (product.getManagerProd() != null) {
-                    AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
-                    productDto.setManagerProd(managerProdDto);
-                }
-                if (product.getAgentwhoSoldProd() != null) {
-                    AgentProdDto agentwhoSoldProd = iAgentProdMapper.toDto(product.getAgentwhoSoldProd());
-                    productDto.setAgentwhoSoldProd(agentwhoSoldProd);
-                }
-                if (product.getAgentReturnedProd() != null) {
-                    AgentProdDto agentReturnedProd = iAgentProdMapper.toDto(product.getAgentReturnedProd());
-                    productDto.setAgentReturnedProd(agentReturnedProd);
-                }
+            if (product.getAgentProd() != null) {
+                AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
+                productDto.setAgentProd(agentProdDto);
+            }
+            if (product.getManagerProd() != null) {
+                AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
+                productDto.setManagerProd(managerProdDto);
+            }
+            if (product.getAgentwhoSoldProd() != null) {
+                AgentProdDto agentwhoSoldProd = iAgentProdMapper.toDto(product.getAgentwhoSoldProd());
+                productDto.setAgentwhoSoldProd(agentwhoSoldProd);
+            }
+            if (product.getAgentReturnedProd() != null) {
+                AgentProdDto agentReturnedProd = iAgentProdMapper.toDto(product.getAgentReturnedProd());
+                productDto.setAgentReturnedProd(agentReturnedProd);
+            }
         }
         if (!searchTerm.isEmpty()) {
             productDtos = productDtos.parallelStream()
@@ -641,7 +641,7 @@ public class ProductService implements IProductService{
         assert userdtos != null;
         List<Userdto> managers = userdtos.stream()
                 .filter(userdto -> userdto.getRealmRoles().contains("MANAGER") || userdto.getRealmRoles().contains("IMANAGER"))
-                    .collect(Collectors.toList());
+                .collect(Collectors.toList());
         return managers;
     }
     private ReclamationDto createReclamationDto(String serialNumbersExpired, Date dueDate, List<Userdto> managers, String agentAsignedToo, String agentUsername) {
@@ -713,32 +713,32 @@ public class ProductService implements IProductService{
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
             ProductDto productDto = productDtos.get(i);
-                if (product.getStock() != null) {
-                    StockDto stockDto = iStockMapper.toDto(product.getStock());
-                    Campaigndto campaigndto = webClientBuilder.build().get()
-                            .uri("http://keycloakuser-service/people/getCampaignByReference/{campaignReference}", product.getStock().getCampaignRef())
-                            .retrieve()
-                            .bodyToMono(Campaigndto.class)
-                            .block();
-                    stockDto.setCampaigndto(campaigndto);
-                    productDto.setStock(stockDto);
-                }
-                if (product.getAgentProd() != null) {
-                    AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
-                    productDto.setAgentProd(agentProdDto);
-                }
-                if (product.getAgentReturnedProd() != null) {
-                    AgentProdDto agentReturnedProd = iAgentProdMapper.toDto(product.getAgentReturnedProd());
-                    productDto.setAgentReturnedProd(agentReturnedProd);
-                }
-                if (product.getAgentwhoSoldProd() != null) {
-                    AgentProdDto agentwhoSoldProd = iAgentProdMapper.toDto(product.getAgentwhoSoldProd());
-                    productDto.setAgentwhoSoldProd(agentwhoSoldProd);
-                }
-                if (product.getManagerProd() != null) {
-                    AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
-                    productDto.setManagerProd(managerProdDto);
-                }
+            if (product.getStock() != null) {
+                StockDto stockDto = iStockMapper.toDto(product.getStock());
+                Campaigndto campaigndto = webClientBuilder.build().get()
+                        .uri("http://keycloakuser-service/people/getCampaignByReference/{campaignReference}", product.getStock().getCampaignRef())
+                        .retrieve()
+                        .bodyToMono(Campaigndto.class)
+                        .block();
+                stockDto.setCampaigndto(campaigndto);
+                productDto.setStock(stockDto);
+            }
+            if (product.getAgentProd() != null) {
+                AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
+                productDto.setAgentProd(agentProdDto);
+            }
+            if (product.getAgentReturnedProd() != null) {
+                AgentProdDto agentReturnedProd = iAgentProdMapper.toDto(product.getAgentReturnedProd());
+                productDto.setAgentReturnedProd(agentReturnedProd);
+            }
+            if (product.getAgentwhoSoldProd() != null) {
+                AgentProdDto agentwhoSoldProd = iAgentProdMapper.toDto(product.getAgentwhoSoldProd());
+                productDto.setAgentwhoSoldProd(agentwhoSoldProd);
+            }
+            if (product.getManagerProd() != null) {
+                AgentProdDto managerProdDto = iAgentProdMapper.toDto(product.getManagerProd());
+                productDto.setManagerProd(managerProdDto);
+            }
         }
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
@@ -900,12 +900,12 @@ public class ProductService implements IProductService{
 
     @Override
     public List<Integer> getProductsReturnedCount(){
-      List<Integer> productsReturnedCount = new ArrayList<>();
+        List<Integer> productsReturnedCount = new ArrayList<>();
         for(int i = 1 ; i <= 12 ; i++){
             int productsMonthReturned = iProductRepository.countReturnedProductsByMonth(i);
             productsReturnedCount.add(productsMonthReturned);
         }
-      return productsReturnedCount;
+        return productsReturnedCount;
     }
 
     @Override
@@ -971,6 +971,10 @@ public class ProductService implements IProductService{
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
             ProductDto productDto = productDtos.get(i);
+            if (product.getStock() != null) {
+                StockDto stockDto = iStockMapper.toDto(product.getStock());
+                productDto.setStock(stockDto);
+            }
             if (product.getAgentProd() != null) {
                 AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
                 productDto.setAgentProd(agentProdDto);
@@ -1015,6 +1019,10 @@ public class ProductService implements IProductService{
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
             ProductDto productDto = productDtos.get(i);
+            if (product.getStock() != null) {
+                StockDto stockDto = iStockMapper.toDto(product.getStock());
+                productDto.setStock(stockDto);
+            }
             if (product.getAgentProd() != null) {
                 AgentProdDto agentProdDto = iAgentProdMapper.toDto(product.getAgentProd());
                 productDto.setAgentProd(agentProdDto);
