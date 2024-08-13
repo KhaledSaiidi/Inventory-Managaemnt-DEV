@@ -6,14 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/KeycloakTokenFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/KeycloakTokenFetcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/KeycloakTokenFetcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/KeycloakTokenFetcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/ScheduledTasks.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/ScheduledTasks.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/user-info/user-info.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/component/userdetails/userdetails.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/navigateprods/navigateprods.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/navigateprods/navigateprods.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/products/products.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/updatestock/updatestock.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/updatestock/updatestock.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/updatestock/updatestock.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../phoenixfront/src/app/stockcomponent/updatestock/updatestock.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

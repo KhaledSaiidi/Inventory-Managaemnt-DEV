@@ -482,7 +482,6 @@ getProductsReturnedPaginatedByusername(username: string, page: number) {
           this.loadingReturn = false;
           this.currentReturnPage = productPage.number + 1;
           this.agentReturnProds = productPage.content;
-          console.log("this.agentReturnProds :" + this.agentReturnProds)
           this.totalReturnElements = productPage.totalPages;
           if(this.agentReturnProds && this.agentReturnProds.length > 0) {
             this.emptyReturnProducts = false;
