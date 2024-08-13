@@ -5,6 +5,7 @@ import com.phoenix.archivedmodeldto.ArchivedProductsDTO;
 import com.phoenix.archivedmodeldto.ArchivedSoldProductsDTO;
 import com.phoenix.archivedmodeldto.ArchivedStockDTO;
 import com.phoenix.dto.*;
+import com.phoenix.kafka.StockProducer;
 import com.phoenix.model.UncheckHistory;
 import com.phoenix.services.IAgentProdService;
 import com.phoenix.services.IProductService;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,6 +44,8 @@ public class Controller {
     @Autowired
     IArchivedService archiveStock;
 
+    @Autowired
+    private StockProducer stockProducer;
 
     @PostMapping("/addStock/{campaignReference}")
     public ResponseEntity<StockDto> addStock(@PathVariable("campaignReference") String campaignReference, @RequestBody StockDto stockdto) {
@@ -502,5 +506,14 @@ public class Controller {
         Page<SoldProductDto> soldProductPage = isoldProductService.getSoldProductsPaginated(pageable, searchTerm);
         return ResponseEntity.ok(soldProductPage);
     }
-
+    @GetMapping("/getAllProductsForAlert")
+    public List<ReclamationDto> checkProductsDueDate() {
+        List<ReclamationDto> reclamationDtos = iProductService.getProductsForAlert();
+        if(!reclamationDtos.isEmpty()){
+            StockEvent stockEvent = new StockEvent();
+            stockEvent.setReclamationDtos(reclamationDtos);
+            stockProducer.sendMessage(stockEvent);
+        }
+        return reclamationDtos;
+    }
 }
