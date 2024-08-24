@@ -12,5 +12,5 @@ public interface ISoldTProductMapper {
     SoldProduct tosoldProduct (Product product);
     Product toProduct (SoldProduct soldProduct);
 
-
+    Product toExportProduct (SoldProduct soldProduct);
 }

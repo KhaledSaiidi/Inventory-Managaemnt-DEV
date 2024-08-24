@@ -13,6 +13,7 @@ import com.phoenix.mapper.IProductMapper;
 import com.phoenix.mapper.IStockMapper;
 import com.phoenix.model.*;
 import com.phoenix.repository.*;
+import com.phoenix.soldproductmapper.ISoldTProductMapper;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -39,15 +40,14 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     @Autowired
     private IProductMapper iProductMapper;
     @Autowired
@@ -75,6 +75,10 @@ public class ProductService implements IProductService{
 
     @Autowired
     private IAgentProdService iAgentProdService;
+
+    @Autowired
+    private ISoldTProductMapper iSoldTProductMapper;
+
     @Override
     public void addProduct(ProductDto productDto) {
         Product product = iProductMapper.toEntity(productDto);
@@ -85,7 +89,7 @@ public class ProductService implements IProductService{
         }
         product.setStock(stock);
         iProductRepository.save(product);
-        if(product.getPrice() != null) {
+        if (product.getPrice() != null) {
             stock.setStockValue(stock.getStockValue().add(product.getPrice()));
         }
         stock.setChecked(false);
@@ -112,7 +116,7 @@ public class ProductService implements IProductService{
             return new PageImpl<>(Collections.emptyList(), pageable, 0);
         }
         Stock stock = stockOptional.get();
-        List<Product> products  = iProductRepository.findByStockAndReturned(stock, false);
+        List<Product> products = iProductRepository.findByStockAndReturned(stock, false);
         List<ProductDto> productDtos = iProductMapper.toDtoList(products);
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
@@ -153,6 +157,7 @@ public class ProductService implements IProductService{
         }
         return new PageImpl<>(pageContent, pageable, productDtos.size());
     }
+
     private boolean filterBySearchTerm(ProductDto productDto, String searchTerm) {
         String searchString = searchTerm.toLowerCase();
         StringBuilder searchFields = new StringBuilder();
@@ -183,17 +188,39 @@ public class ProductService implements IProductService{
         Product product = iProductRepository.findById(serialNumber).orElse(null);
         Stock stock = product.getStock();
         BigDecimal tochangeValue = BigDecimal.ZERO;
-        if (product == null) {return null;}
-        if (productDto.getSimNumber() != null) {product.setSimNumber(productDto.getSimNumber());}
-        if (productDto.getCheckin() != null) {product.setCheckin(productDto.getCheckin());}
-        if (productDto.getBoxNumber() != null) {product.setBoxNumber(productDto.getBoxNumber());}
-        if (productDto.getBrand() != null) {product.setBrand(productDto.getBrand());}
-        if (productDto.getProductType() != null) {product.setProductType(productDto.getProductType());}
-        if (productDto.getProdName() != null) {product.setProdName(productDto.getProdName());}
-        if (productDto.getComments() != null) {product.setComments(productDto.getComments());}
-        if (productDto.getPrice() != null) {product.setPrice(productDto.getPrice());}
-        if (productDto.isReturned()) {product.setReturned(productDto.isReturned());}
-        if (productDto.isCheckedExistence()) {product.setCheckedExistence(productDto.isCheckedExistence());}
+        if (product == null) {
+            return null;
+        }
+        if (productDto.getSimNumber() != null) {
+            product.setSimNumber(productDto.getSimNumber());
+        }
+        if (productDto.getCheckin() != null) {
+            product.setCheckin(productDto.getCheckin());
+        }
+        if (productDto.getBoxNumber() != null) {
+            product.setBoxNumber(productDto.getBoxNumber());
+        }
+        if (productDto.getBrand() != null) {
+            product.setBrand(productDto.getBrand());
+        }
+        if (productDto.getProductType() != null) {
+            product.setProductType(productDto.getProductType());
+        }
+        if (productDto.getProdName() != null) {
+            product.setProdName(productDto.getProdName());
+        }
+        if (productDto.getComments() != null) {
+            product.setComments(productDto.getComments());
+        }
+        if (productDto.getPrice() != null) {
+            product.setPrice(productDto.getPrice());
+        }
+        if (productDto.isReturned()) {
+            product.setReturned(productDto.isReturned());
+        }
+        if (productDto.isCheckedExistence()) {
+            product.setCheckedExistence(productDto.isCheckedExistence());
+        }
         if (productDto.getPrice() != null) {
             tochangeValue = product.getPrice();
             product.setPrice(productDto.getPrice());
@@ -216,17 +243,14 @@ public class ProductService implements IProductService{
         Product product = productOptional.get();
         ProductDto productDto = iProductMapper.toDto(product);
         productDto.setStock(iStockMapper.toDto(product.getStock()));
-        if(product.getAgentProd() != null) {
+        if (product.getAgentProd() != null) {
             productDto.setAgentProd(iAgentProdMapper.toDto(product.getAgentProd()));
         }
-        if(product.getManagerProd() != null) {
+        if (product.getManagerProd() != null) {
             productDto.setManagerProd(iAgentProdMapper.toDto(product.getManagerProd()));
         }
         return productDto;
     }
-
-
-
 
 
     @Override
@@ -234,9 +258,9 @@ public class ProductService implements IProductService{
     public Integer addProductsByupload(MultipartFile file, String stockReference) throws IOException {
         List<ProductDto> productDtos = new ArrayList<>(parseCsv(file, stockReference));
         Optional<Stock> optionalstock = iStockRepository.findById(stockReference);
-        if(optionalstock.isEmpty())
-        {return  null;}
-        else {
+        if (optionalstock.isEmpty()) {
+            return null;
+        } else {
             Stock stock = optionalstock.get();
             List<Product> products = iProductMapper.toEntityList(productDtos);
             products.forEach(product -> product.setStock(stock));
@@ -307,6 +331,7 @@ public class ProductService implements IProductService{
             return productDtos;
         }
     }
+
     public void parseCsvForAssigning(MultipartFile file, String stockReference) throws IOException {
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
             HeaderColumnNameMappingStrategy<ProductDtosCsvRepresentation> strategy =
@@ -324,7 +349,8 @@ public class ProductService implements IProductService{
             Map<String, String> usersMap = webClientBuilder.build().get()
                     .uri("http://keycloakuser-service/people/usersMap")
                     .retrieve()
-                    .bodyToMono(new ParameterizedTypeReference<Map<String, String>>() {})
+                    .bodyToMono(new ParameterizedTypeReference<Map<String, String>>() {
+                    })
                     .block();
 
             for (ProductDtosCsvRepresentation csvLine : csvLines) {
@@ -510,7 +536,7 @@ public class ProductService implements IProductService{
                     prodsrefNotInProducts.add(prodRef);
                 }
             }
-            if(!prodsrefNotInProducts.isEmpty()) {
+            if (!prodsrefNotInProducts.isEmpty()) {
                 LocalDate now = LocalDate.now();
                 UncheckHistory uncheckHistory = new UncheckHistory(prodsrefNotInProducts, now, stock.getStockReference());
                 iUncheckHistoryRepository.save(uncheckHistory);
@@ -529,7 +555,7 @@ public class ProductService implements IProductService{
         }
         Stock stock = stockOptional.get();
         List<Product> products = iProductRepository.findByStock(stock);
-        if(!products.isEmpty()) {
+        if (!products.isEmpty()) {
             long checked = products.stream().filter(Product::isCheckedExistence).count();
             long returned = products.stream().filter(product -> product.isReturned()).count();
 
@@ -550,7 +576,7 @@ public class ProductService implements IProductService{
             return new PageImpl<>(Collections.emptyList(), pageable, 0);
         }
         Stock stock = stockOptional.get();
-        List<Product> products  = iProductRepository.findByStockAndReturned(stock, true);
+        List<Product> products = iProductRepository.findByStockAndReturned(stock, true);
         List<ProductDto> productDtos = iProductMapper.toDtoList(products);
         for (int i = 0; i < productDtos.size(); i++) {
             Product product = products.get(i);
@@ -600,7 +626,7 @@ public class ProductService implements IProductService{
 
     @Override
     @Transactional
-    public List<ReclamationDto>  getProductsForAlert() {
+    public List<ReclamationDto> getProductsForAlert() {
         LocalDate currentDate = LocalDate.now();
         LocalDate sevenDaysLater = currentDate.plusDays(7);
         List<Stock> stocksForAlert = iStockRepository.findStocksDueWithinSevenDays(currentDate, sevenDaysLater);
@@ -623,7 +649,7 @@ public class ProductService implements IProductService{
                         dueDate = Date.from(product.getAgentProd().getDuesoldDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
                         agentAsignedToo = product.getAgentProd().getFirstname() + " " + product.getAgentProd().getLastname();
                         agentUsername = product.getAgentProd().getUsername();
-                    } else if(product.getStock() != null && product.getStock().getDueDate() != null){
+                    } else if (product.getStock() != null && product.getStock().getDueDate() != null) {
                         dueDate = Date.from(product.getStock().getDueDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
                     } else {
                         return null;
@@ -658,6 +684,7 @@ public class ProductService implements IProductService{
                         userdto.getRealmRoles().contains("IMANAGER"))
                 .collect(Collectors.toList());
     }
+
     private ReclamationDto createReclamationDto(String serialNumbersExpired, Date dueDate, List<Userdto> managers, String agentAsignedToo, String agentUsername) {
         List<String> usernames = new ArrayList<>(managers.stream()
                 .map(Userdto::getUsername)
@@ -676,7 +703,7 @@ public class ProductService implements IProductService{
         }
         ReclamationDto reclamationDto = new ReclamationDto();
         reclamationDto.setSenderReference("UniStock Keeper");
-        if(!agentAsignedToo.isEmpty()) {
+        if (!agentAsignedToo.isEmpty()) {
             reclamationDto.setReclamationText("The expiration date for this product " +
                     "'" + serialNumbersExpired + "'" +
                     " assigned to " +
@@ -765,6 +792,7 @@ public class ProductService implements IProductService{
 
         return new PageImpl<>(pageContent, pageable, productDtos.size());
     }
+
     @Override
     public void checkReturn(String serialNumber) {
         Product existingProduct = iProductRepository.findById(serialNumber)
@@ -799,7 +827,6 @@ public class ProductService implements IProductService{
     }
 
 
-
     @Override
     public List<ProductDto> getThelastMonthlyReturnedProds() {
         List<AgentProd> agentProds = iAgentProdRepository.findAll();
@@ -824,7 +851,7 @@ public class ProductService implements IProductService{
             });
         }
         productDtos.sort(Comparator.comparing(ProductDto::getCheckin).reversed());
-        if(productDtos.isEmpty()){
+        if (productDtos.isEmpty()) {
             return null;
         }
         return productDtos;
@@ -883,9 +910,9 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public List<Integer> getProductsReturnedCount(){
+    public List<Integer> getProductsReturnedCount() {
         List<Integer> productsReturnedCount = new ArrayList<>();
-        for(int i = 1 ; i <= 12 ; i++){
+        for (int i = 1; i <= 12; i++) {
             int productsMonthReturned = iProductRepository.countReturnedProductsByMonth(i);
             productsReturnedCount.add(productsMonthReturned);
         }
@@ -896,7 +923,7 @@ public class ProductService implements IProductService{
     public void deleteProduct(String ref) {
         Optional<Product> optionalProduct = iProductRepository.findById(ref);
         System.out.println("optionalProduct is : " + optionalProduct);
-        if(optionalProduct.isPresent()){
+        if (optionalProduct.isPresent()) {
             Product product = optionalProduct.get();
             System.out.println("Product is : " + product);
             iProductRepository.delete(product);
@@ -1048,4 +1075,39 @@ public class ProductService implements IProductService{
         }
         return new PageImpl<>(pageContent, pageable, productDtos.size());
     }
-}
+
+    @Override
+    public List<ProductDto> getProductsToExport(List<String> serialNumbers) {
+        List<ProductDto> productDtos = new ArrayList<>();
+
+        // Fetch all products and sold products in one go
+        Map<String, Product> productMap = iProductRepository.findAllById(serialNumbers)
+                .stream()
+                .collect(Collectors.toMap(Product::getSerialNumber, Function.identity()));
+
+        Map<String, SoldProduct> soldProductMap = iSoldProductRepository.findAllById(serialNumbers)
+                .stream()
+                .collect(Collectors.toMap(SoldProduct::getSerialNumber, Function.identity()));
+
+        for (String serialNumber : serialNumbers) {
+            Product product = productMap.get(serialNumber);
+            if (product == null) {
+                SoldProduct soldProduct = soldProductMap.get(serialNumber);
+                if (soldProduct == null) {
+                    continue;
+                }
+                product = iSoldTProductMapper.toExportProduct(soldProduct);
+            }
+            ProductDto productDto = iProductMapper.toDto(product);
+
+            Optional.ofNullable(product.getStock()).ifPresent(stock -> productDto.setStock(iStockMapper.toDto(stock)));
+            Optional.ofNullable(product.getAgentProd()).ifPresent(agentProd -> productDto.setAgentProd(iAgentProdMapper.toDto(agentProd)));
+            Optional.ofNullable(product.getAgentwhoSoldProd()).ifPresent(agentWhoSoldProd -> productDto.setAgentwhoSoldProd(iAgentProdMapper.toDto(agentWhoSoldProd)));
+            Optional.ofNullable(product.getAgentReturnedProd()).ifPresent(agentReturnedProd -> productDto.setAgentReturnedProd(iAgentProdMapper.toDto(agentReturnedProd)));
+            Optional.ofNullable(product.getManagerProd()).ifPresent(managerProd -> productDto.setManagerProd(iAgentProdMapper.toDto(managerProd)));
+
+            productDtos.add(productDto);
+        }
+
+        return productDtos;
+    }}

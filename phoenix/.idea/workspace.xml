@@ -6,15 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/ISoldProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/ISoldProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/IProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/SoldProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/SoldProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/IProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/IProductRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/ISoldProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/ISoldProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/soldproductmapper/ISoldTProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/soldproductmapper/ISoldTProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/soldproductmapper/SoldTProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/soldproductmapper/SoldTProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/IProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/IProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/SoldProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/soldproductmapper/ISoldTProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/soldproductmapper/ISoldTProductMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/soldproductmapper/SoldTProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/soldproductmapper/SoldTProductMapper.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
