@@ -9,7 +9,7 @@ services:
       MYSQL_USER: universal
       MYSQL_PASSWORD: universal
     volumes:
-      - /data:/var/lib/mysql:rw
+      - mysql_data:/var/lib/mysql:rw
       - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
     ports:
       - "3306:3306"
@@ -111,7 +111,6 @@ services:
       - universal-mm-net
     environment:
       - KEYCLOAK_HOSTNAME=http://keycloak:8181
-      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
       keycloak:
         condition: service_started
@@ -131,7 +130,6 @@ services:
       - universal-mm-net
     environment:
       - KEYCLOAK_HOSTNAME=http://keycloak:8181
-      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
       - configserver
       - server-discovery
@@ -146,7 +144,6 @@ services:
       - universal-mm-net
     environment:
       - KEYCLOAK_HOSTNAME=http://keycloak:8181
-      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
       - configserver
       - api-gateway
@@ -168,7 +165,6 @@ services:
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - KEYCLOAK_HOSTNAME=http://keycloak:8181
-      - SPRING_PROFILES_ACTIVE=docker
 
   stock-service:
     build:
@@ -184,7 +180,6 @@ services:
       - keycloak
     environment:
       - KEYCLOAK_HOSTNAME=http://keycloak:8181
-      - SPRING_PROFILES_ACTIVE=docker
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
 
   frontapp:
@@ -201,9 +196,6 @@ services:
         condition: service_started
       api-gateway:
         condition: service_started
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - KEYCLOAK_URL=https://proxy:9002
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4200"]
       interval: 30s
@@ -228,6 +220,8 @@ services:
       - type: bind
         source: ./proxy/nginx-proxy.conf
         target: /etc/nginx/conf.d/proxy.conf
+volumes:
+  mysql_data:
 
 networks:
   universal-mm-net:

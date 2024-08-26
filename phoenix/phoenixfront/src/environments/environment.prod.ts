@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   keycloak: {
-    url: '__KEYCLOAK_URL__',
+    url: 'http://localhost:8181',
     realm:'phoenixstock',
     clientId:'front-client'
   },

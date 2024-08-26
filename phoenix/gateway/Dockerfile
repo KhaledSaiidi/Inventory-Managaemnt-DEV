@@ -25,4 +25,4 @@ RUN chmod +x /usr/local/bin/wait-for-config.sh
 EXPOSE 9000
 
 # Run the jar file
-ENTRYPOINT ["sh", "-c", "/usr/local/bin/wait-for-eureka.sh && /usr/local/bin/wait-for-keycloak.sh && /usr/local/bin/wait-for-config.sh && exec java -jar /app/gateway.jar"]
+ENTRYPOINT ["sh", "-c", "/usr/local/bin/wait-for-eureka.sh && /usr/local/bin/wait-for-keycloak.sh && /usr/local/bin/wait-for-config.sh && exec java -jar /app/gateway.jar --spring.profiles.active=docker"]
