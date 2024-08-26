@@ -6,36 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/keycloakuser-service-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/keycloakuser-service-docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/classes/configurations/keycloakuser-service-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/configurations/keycloakuser-service-docker.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/resources/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/resources/application-docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/target/classes/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/classes/application-docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/notification/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phoenixfront/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/phoenixfront/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phoenixfront/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/phoenixfront/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/stock/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phoenixfront/src/app/services/stock.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/phoenixfront/src/app/services/stock.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phoenixfront/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/phoenixfront/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" afterDir="false" />
     </list>
@@ -129,7 +116,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.phoenix [package]">
+  <component name="RunManager" selected="Application.Gateway">
     <configuration name="ConfigurationServer" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -139,15 +126,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Gateway" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.phoenix.Gateway" />
-      <module name="gateway" />
+    <configuration name="DiscoveryServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.phoenix.DiscoveryServer" />
+      <module name="discovery-server" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.phoenix.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gateway" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.phoenix.Gateway" />
+      <module name="gateway" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -224,6 +218,7 @@
     <list>
       <item itemvalue="Application.ConfigurationServer" />
       <item itemvalue="Application.Gateway" />
+      <item itemvalue="Application.DiscoveryServer" />
       <item itemvalue="Application.KeycloakUser" />
       <item itemvalue="Application.NotificationApplication" />
       <item itemvalue="Application.Stock" />
@@ -231,11 +226,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Maven.phoenix [package]" />
-        <item itemvalue="Application.Stock" />
         <item itemvalue="Application.NotificationApplication" />
+        <item itemvalue="Application.Stock" />
         <item itemvalue="Application.KeycloakUser" />
-        <item itemvalue="Application.Gateway" />
+        <item itemvalue="Application.DiscoveryServer" />
+        <item itemvalue="Maven.phoenix [package]" />
       </list>
     </recent_temporary>
   </component>
