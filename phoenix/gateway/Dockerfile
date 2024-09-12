@@ -23,6 +23,7 @@ RUN chmod +x /usr/local/bin/wait-for-config.sh
 
 # Expose the port on which the app runs
 EXPOSE 9000
+ENV KEYCLOAK_HOSTNAME keycloak
 
 # Run the jar file
 ENTRYPOINT ["sh", "-c", "/usr/local/bin/wait-for-eureka.sh && /usr/local/bin/wait-for-keycloak.sh && /usr/local/bin/wait-for-config.sh && exec java -jar /app/gateway.jar --spring.profiles.active=docker"]

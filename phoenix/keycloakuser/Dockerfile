@@ -21,6 +21,7 @@ RUN chmod +x /usr/local/bin/wait-for-eureka.sh
 RUN chmod +x /usr/local/bin/wait-for-keycloak.sh
 RUN chmod +x /usr/local/bin/wait-for-config.sh
 RUN chmod +x /usr/local/bin/wait-for-gateway.sh
+ENV KEYCLOAK_HOSTNAME keycloak
 
 # Run the jar file
 ENTRYPOINT ["sh", "-c", "/usr/local/bin/wait-for-eureka.sh && /usr/local/bin/wait-for-keycloak.sh && /usr/local/bin/wait-for-config.sh && /usr/local/bin/wait-for-gateway.sh && exec java -jar /app/keycloakuser.jar --spring.profiles.active=docker"]

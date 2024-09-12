@@ -38,7 +38,7 @@ services:
       - KC_DB_SCHEMA=keycloakdb
       - KC_PROXY=edge
       - PROXY_ADDRESS_FORWARDING=true
-      - KEYCLOAK_URL=http://proxy:9002
+      - KEYCLOAK_URL=http://proxy:9090
     ports:
       - "8181:8181"
     networks:
@@ -110,7 +110,7 @@ services:
     networks:
       - universal-mm-net
     environment:
-      - KEYCLOAK_HOSTNAME=http://proxy:9002
+      - KEYCLOAK_HOSTNAME=http://proxy:9090
     depends_on:
       keycloak:
         condition: service_started
@@ -129,7 +129,7 @@ services:
     networks:
       - universal-mm-net
     environment:
-      - KEYCLOAK_HOSTNAME=http://proxy:9002
+      - KEYCLOAK_HOSTNAME=http://proxy:9090
     depends_on:
       - configserver
       - server-discovery
@@ -143,7 +143,7 @@ services:
     networks:
       - universal-mm-net
     environment:
-      - KEYCLOAK_HOSTNAME=http://proxy:9002
+      - KEYCLOAK_HOSTNAME=http://proxy:9090
     depends_on:
       - configserver
       - api-gateway
@@ -164,8 +164,7 @@ services:
       - keycloak
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - KEYCLOAK_HOSTNAME=http://proxy:9002
-
+      - KEYCLOAK_HOSTNAME=http://proxy:9090
   stock-service:
     build:
       context: ./stock
@@ -179,7 +178,7 @@ services:
       - server-discovery
       - keycloak
     environment:
-      - KEYCLOAK_HOSTNAME=http://proxy:9002
+      - KEYCLOAK_HOSTNAME=http://proxy:9090
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
 
   frontapp:
@@ -213,7 +212,7 @@ services:
       frontapp:
         condition: service_healthy
     ports:
-      - 9002:9002
+      - 9090:9090
     networks:
       - universal-mm-net
     volumes:

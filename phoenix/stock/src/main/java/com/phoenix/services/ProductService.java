@@ -1,9 +1,11 @@
 package com.phoenix.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.HeaderColumnNameMappingStrategy;
-import com.phoenix.config.CaseInsensitiveHeaderColumnNameMappingStrategy;
+import org.springframework.beans.factory.annotation.Value;
 import com.phoenix.dto.*;
 import com.phoenix.dtokeycloakuser.Campaigndto;
 import com.phoenix.dtokeycloakuser.UserMysqldto;
@@ -23,7 +25,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
+import org.springframework.http.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,40 +46,38 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService implements IProductService {
-    @Autowired
-    private IProductMapper iProductMapper;
-    @Autowired
-    private IProductRepository iProductRepository;
 
-    @Autowired
-    private ISoldProductRepository iSoldProductRepository;
-
-    @Autowired
-    private IStockMapper iStockMapper;
-    @Autowired
-    private IAgentProdMapper iAgentProdMapper;
-    @Autowired
+    private final IProductMapper iProductMapper;
+    private final IProductRepository iProductRepository;
+    private final ISoldProductRepository iSoldProductRepository;
+    private final IStockMapper iStockMapper;
+    private final IAgentProdMapper iAgentProdMapper;
     private final KeycloakTokenFetcher tokenFetcher;
-
     private final WebClient.Builder webClientBuilder;
+    private final IStockRepository iStockRepository;
+    private final IUncheckHistoryRepository iUncheckHistoryRepository;
+    private final IAgentProdRepository iAgentProdRepository;
+    private final IAgentProdService iAgentProdService;
+    private final ISoldTProductMapper iSoldTProductMapper;
+    private final RestTemplate restTemplate = new RestTemplate();
 
-    @Autowired
-    private IStockRepository iStockRepository;
-
-    @Autowired
-    private IUncheckHistoryRepository iUncheckHistoryRepository;
-    @Autowired
-    private IAgentProdRepository iAgentProdRepository;
-
-    @Autowired
-    private IAgentProdService iAgentProdService;
-
-    @Autowired
-    private ISoldTProductMapper iSoldTProductMapper;
+    @Value("${server-url}")
+    private String keycloakServerUrl;
+    @Value("${realm}")
+    private String keycloakRealm;
+    @Value("${client-id}")
+    private String clientId;
+    @Value("${grant-type}")
+    private String grantType;
+    @Value("${name}")
+    private String username;
+    @Value("${password}")
+    private String password;
 
     @Override
     public void addProduct(ProductDto productDto) {
@@ -662,9 +662,16 @@ public class ProductService implements IProductService {
 
 
     private List<Userdto> getAllmanagers() {
-        String token = tokenFetcher.getToken();
+        String token = authenticateWithKeycloak();
         List<Userdto> userDtos = null;
+
+        if (token == null) {
+            System.out.println("Failed to get token from Keycloak.");
+            return null;
+        }
+
         try {
+            // Fetch all users using the token
             userDtos = webClientBuilder.build().get()
                     .uri("http://keycloakuser-service/people/allusers")
                     .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
@@ -676,13 +683,46 @@ public class ProductService implements IProductService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         if (userDtos == null || userDtos.isEmpty()) {
             return null;
         }
+
         return userDtos.stream()
                 .filter(userdto -> userdto.getRealmRoles().contains("MANAGER") ||
                         userdto.getRealmRoles().contains("IMANAGER"))
                 .collect(Collectors.toList());
+    }
+    private String authenticateWithKeycloak() {
+        try {
+            String tokenUrl = keycloakServerUrl + "/realms/" + keycloakRealm + "/protocol/openid-connect/token";
+            HttpHeaders headers = new HttpHeaders();
+            headers.set(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded");
+            String body = "client_id=" + clientId + "&grant_type=" + grantType + "&username=" + username + "&password=" + password;
+            HttpEntity<String> request = new HttpEntity<>(body, headers);
+            ResponseEntity<String> response = restTemplate.exchange(tokenUrl, HttpMethod.POST, request, String.class);
+
+            if (response.getStatusCode() == HttpStatus.OK) {
+                return extractAccessTokenFromResponse(response.getBody());
+            } else {
+                System.err.println("Failed to authenticate with Keycloak. Status: " + response.getStatusCode());
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    private String extractAccessTokenFromResponse(String response) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode jsonNode = objectMapper.readTree(response);
+            System.out.println("token is: " + jsonNode.get("access_token").asText());
+            return jsonNode.get("access_token").asText();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private ReclamationDto createReclamationDto(String serialNumbersExpired, Date dueDate, List<Userdto> managers, String agentAsignedToo, String agentUsername) {

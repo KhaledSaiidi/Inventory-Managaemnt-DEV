@@ -5,26 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/controller/ScheduledTasks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/keycloakuser-service-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/keycloakuser-service-docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/target/classes/configurations/keycloakuser-service-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/configurations/keycloakuser-service-docker.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/stock-service-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/stock-service-docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/stock-service.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/stock-service.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/classes/configurations/stock-service-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/configurations/stock-service-docker.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/classes/configurations/stock-service.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/configurations/stock-service.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/config-server-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/target/discovery-server-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phoenixfront/src/app/services/stock.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/phoenixfront/src/app/services/stock.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phoenixfront/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/phoenixfront/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/gateway-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/keycloakuser-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/notification/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/NotificationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/NotificationApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/repository/IReclamationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/repository/IReclamationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/IReclamationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/IReclamationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/ReclamationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/phoenix/services/ReclamationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/target/notification-1.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phoenixfront/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/phoenixfront/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/nginx-proxy.conf" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/nginx-proxy.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/realms/realm-export.json" beforeDir="false" afterPath="$PROJECT_DIR$/realms/realm-export.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/stock/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/ScheduledTasks.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/ScheduledTasks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +113,8 @@
     &quot;Maven.notification [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.phoenix [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.phoenix [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.phoenix [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.phoenix [verify].executor&quot;: &quot;Run&quot;,
     &quot;Maven.stock [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.stock [install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.stock [package].executor&quot;: &quot;Run&quot;,
@@ -107,6 +141,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\khale\Desktop\Inventory-Management-Solution\phoenix\config-server" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.phoenix.controller" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -116,7 +153,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Gateway">
+  <component name="RunManager" selected="Application.Stock">
     <configuration name="ConfigurationServer" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />

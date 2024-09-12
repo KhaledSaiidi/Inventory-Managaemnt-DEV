@@ -24,7 +24,11 @@ public class ScheduledTasks {
     private StockProducer stockProducer;
 
     private final IAgentProdService iAgentProdService;
-    @Scheduled(cron = "0 0 7 * * *") // Runs at 7:00 AM every day
+    //@Scheduled(cron = "0 0 7 * * *") // Runs at 7:00 AM every day
+
+    // This method will be executed every 2 minutes
+    @Scheduled(fixedRate = 60000)
+
     public void checkProductsDueDate() {
         List<ReclamationDto> reclamationDtos = iProductService.getProductsForAlert();
         if(!reclamationDtos.isEmpty()){
