@@ -6,19 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stock/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/kafka/StockProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/kafka/StockProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/phoenix/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/phoenix/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloakuser/src/main/java/com/phoenix/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/ScheduledTasks.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/controller/ScheduledTasks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/kafka/StockProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/kafka/StockProducer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/stock-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/resources/application-docker.properties" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/resources/application-docker.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
