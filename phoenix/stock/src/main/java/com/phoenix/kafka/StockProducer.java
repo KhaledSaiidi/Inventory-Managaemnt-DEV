@@ -21,8 +21,6 @@ public class StockProducer {
     private KafkaTemplate<String, StockEvent> kafkaTemplate;
 
     public void sendMessage(StockEvent event){
-        LOGGER.info(String.format("Stock event => %s", event.toString()));
-        //Create a Message
         Message<StockEvent> message = MessageBuilder
                 .withPayload(event)
                 .setHeader(KafkaHeaders.TOPIC, topic.name())
