@@ -738,29 +738,48 @@ public class ProductService implements IProductService {
         Date now = new Date();
         long differenceMillis = dueDate.getTime() - now.getTime();
         long differenceDays = (differenceMillis / (1000 * 60 * 60 * 24)) + 1;
-        if (differenceDays < 0) {
+        boolean isExpired = differenceDays < 0;
+
+        if (isExpired) {
             differenceDays = Math.abs(differenceDays);
         }
+
         ReclamationDto reclamationDto = new ReclamationDto();
         reclamationDto.setSenderReference("UniStock Keeper");
+
+        String expirationMessage;
+        String dueDateMessage;
+        String expirationDiff;
+
+        if (isExpired) {
+            dueDateMessage = " Please check the situation, the product has expired " + formattedDueDate;
+            expirationMessage = "Product already expired ";
+            expirationDiff = " since ";
+
+        } else {
+            dueDateMessage = " Please check the situation, the product will expire on " + formattedDueDate;
+            expirationMessage = "The expiration date for this product ";
+            expirationDiff = " in ";
+
+        }
         if (!agentAsignedToo.isEmpty()) {
-            reclamationDto.setReclamationText("The expiration date for this product " +
+            reclamationDto.setReclamationText(expirationMessage  +
                     "'" + serialNumbersExpired + "'" +
                     " assigned to " +
                     agentAsignedToo +
-                    " in " +
+                    expirationDiff +
                     +differenceDays +
                     " day(s). " +
-                    " Please check the situation, the product will expire on " +
-                    formattedDueDate);
+                    " Please check the situation, " +
+                    dueDateMessage);
         } else {
-            reclamationDto.setReclamationText("The expiration date for this product " +
+            reclamationDto.setReclamationText(expirationMessage  +
                     "'" + serialNumbersExpired +
-                    " in " +
+                    expirationDiff +
                     +differenceDays +
                     " day(s). " +
-                    " Please check the situation, especially as the product is not assigned to any agent. The product will expire on " +
-                    formattedDueDate);
+                    " Please check the situation, especially as the product is not assigned to any agent. " +
+                    dueDateMessage);
         }
         reclamationDto.setReceiverReference(usernames);
         reclamationDto.setReclamationType(ReclamType.stockExpirationReminder);

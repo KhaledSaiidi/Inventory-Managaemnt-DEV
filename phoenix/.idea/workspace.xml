@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="00e38713-837f-4359-9d84-227dd396df21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/controller/ScheduledTasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IAgentProdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IAgentProdRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/repository/IStockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/phoenix/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/IAgentProdRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/IAgentProdRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/IStockRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/repository/IStockRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/phoenix/services/ProductService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,10 +211,10 @@
     <list>
       <item itemvalue="Application.ConfigurationServer" />
       <item itemvalue="Application.Gateway" />
+      <item itemvalue="Application.Stock" />
       <item itemvalue="Application.DiscoveryServer" />
       <item itemvalue="Application.KeycloakUser" />
       <item itemvalue="Application.NotificationApplication" />
-      <item itemvalue="Application.Stock" />
       <item itemvalue="Maven.phoenix [package]" />
     </list>
     <recent_temporary>

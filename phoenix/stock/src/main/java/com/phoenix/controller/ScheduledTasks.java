@@ -24,7 +24,7 @@ public class ScheduledTasks {
     private StockProducer stockProducer;
 
     private final IAgentProdService iAgentProdService;
-    //@Scheduled(cron = "0 0 7 * * *") // Runs at 7:00 AM every day
+    @Scheduled(fixedRate = 86400000) // 24 hours in milliseconds
 
     // This method will be executed every 2 minutes
     @Scheduled(fixedRate = 60000)
@@ -40,7 +40,7 @@ public class ScheduledTasks {
 
 
     //@Scheduled(fixedRate = 600000) // test Runs each 10 min
-    @Scheduled(cron = "0 30 23 * * *") // Runs at 11:30 PM every day
+    @Scheduled(fixedRate = 172800000) // 48 hours in milliseconds
     public void deleteAgentProdsWithoutProducts() {
         iAgentProdService.deleteAgentProdsWithoutProducts();
     }
