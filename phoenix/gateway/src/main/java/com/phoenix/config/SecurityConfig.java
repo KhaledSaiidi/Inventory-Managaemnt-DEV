@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchange ->
                         exchange.pathMatchers("/eureka/**", "/notification/notif-websocket/**"
-                                        , "/people/allusers/**")
+                                        , "/people/allusers/**", "/messenger/ws/**")
                                 .permitAll()
                                 .anyExchange()
                                 .authenticated())
@@ -36,7 +36,7 @@ public class SecurityConfig {
             ServerHttpResponse response = exchange.getResponse();
             HttpHeaders headers = response.getHeaders();
             String path = exchange.getRequest().getURI().getPath();
-            if (!path.startsWith("/notification/notif-websocket/")) {
+            if (!path.startsWith("/notification/notif-websocket/") && !path.startsWith("/messenger/ws/")) {
                 String origin = exchange.getRequest().getHeaders().getOrigin();
 
                 headers.setAccessControlAllowOrigin(origin);

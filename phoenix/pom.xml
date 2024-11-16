@@ -21,6 +21,7 @@
         <module>config-server</module>
         <module>gateway</module>
         <module>notification</module>
+        <module>messenger-service</module>
     </modules>
 
     <properties>

@@ -109,3 +109,662 @@
 .animated-button:hover img {
   animation: move 1s infinite ease-in-out; /* Adjust the animation duration and easing as needed */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Chat Container */
+.chat-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row; /* Align chat boxes next to user panel */
+  align-items: flex-start;
+  z-index: 999999999;
+}
+
+/* Chat Icon (Floating Button) */
+.chat-icon {
+  background: #0078ff;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  margin-bottom: 15px;
+  transition: background 0.3s ease;
+  z-index: 999999999;
+}
+
+
+/* Hide the chat icon when user list is open */
+.chat-icon.hidden {
+  display: none;
+}
+
+/* Users Panel (Slide-In, Full Height) */
+.users-panel {
+  width: 300px;
+  height: 100vh; /* Full height */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  bottom: 0;
+  right: 0; /* Positioned to the bottom-right of the screen */
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.users-panel.open {
+  transform: translateY(0);
+}
+
+/* Panel Header */
+.panel-header {
+  background: #0078ff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.panel-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.panel-header .close-btn:hover {
+  color: #ddd;
+}
+
+/* User List */
+.users-panel ul {
+  list-style: none;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px); /* Max height minus header */
+}
+
+.users-panel li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.users-panel li:hover {
+  background: #f5f5f5;
+}
+
+.user-avatar {
+  background: #0078ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+
+
+.user-name {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.status-dot.online {
+  background: #4caf50;
+}
+
+.status-dot.offline {
+  background: #ccc;
+}
+
+/* Chat Boxes */
+.chat-boxes {
+  display: flex;
+  gap: 20px; /* Increased space between chat boxes */
+  max-width: calc(100vw - 320px); /* Space for the user panel */
+  overflow-x: auto;
+  padding: 10px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Left to the users panel */
+  z-index: 999999999;
+
+}
+
+
+.chat-box {
+  width: 350px; /* Larger width for each chat box */
+  height: 500px; /* Double the height */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 999999999;
+}
+
+.chat-header {
+  background: #0078ff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  border-radius: 8px 8px 0 0;
+}
+
+.chat-header span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.chat-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.chat-header .close-btn:hover {
+  color: #ddd;
+}
+
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Align messages from other users to the left by default */
+.message-item {
+  margin-bottom: 10px;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Default for other person's messages */
+}
+
+
+/* Align sent messages (logged-in user's) to the right */
+.message-item.sent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  /* Align all content to the right */
+  max-width: 90%;
+  margin-bottom: 15px;
+}
+
+/* Sender's name (Make sure it's aligned with the message content) */
+.message-sender {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #0078ff;
+  align-self: flex-start; /* Default for other users */
+}
+
+/* Align the sender's name to the right for sent messages */
+.message-item.sent .message-sender {
+  align-self: flex-end; /* Align to the right */
+}
+
+/* Message Content */
+.message-content {
+  background: #e9f5ff;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 75%;
+  word-wrap: break-word;
+  color: #333;
+  margin-left: 5px;
+}
+
+/* When the message is sent by the logged-in user, align to the right */
+.message-item.sent .message-content {
+  background: #dff0d8; /* Adjust the color if needed */
+  align-self: flex-end;  /* Align message content to the right */
+  margin-left: 0;
+  max-width: 75%;
+}
+
+/* Timestamp */
+.timestamp {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+  align-self: flex-start;
+}
+
+/* Align timestamp to the right for sent messages */
+.message-item.sent .timestamp {
+  align-self: flex-end; /* Align timestamp to the right */
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+
+
+
+
+
+/* Message Form */
+.message-form {
+  display: flex;
+  padding: 10px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+}
+
+.message-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: border 0.3s ease;
+}
+
+.message-form input:focus {
+  border: 1px solid #0078ff;
+}
+
+.message-form button {
+  background: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.message-form button:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.message-form button:hover:not(:disabled) {
+  background: #005bb5;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .users-panel {
+    width: 100%;
+    height: 100%; /* Full height for smaller screens */
+  }
+
+  .chat-box {
+    width: 100%;
+  }
+
+  .chat-boxes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Panel Header */
+.panel-header {
+  background: #0078ff;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.panel-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.panel-header .close-btn:hover {
+  color: #ddd;
+}
+
+/* User List */
+.users-panel ul {
+  list-style: none;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px); /* Max height minus header */
+}
+
+.users-panel li {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.users-panel li:hover {
+  background: #f5f5f5;
+}
+
+.user-avatar {
+  background: #0078ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.status-dot.online {
+  background: #4caf50;
+}
+
+.status-dot.offline {
+  background: #ccc;
+}
+
+/* Chat Boxes */
+.chat-boxes {
+  display: flex;
+  gap: 20px; /* Increased space between chat boxes */
+  max-width: calc(100vw - 320px); /* Space for the user panel */
+  overflow-x: auto;
+  padding: 10px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Left to the users panel */
+  z-index: 999999999;
+
+}
+
+.chat-box {
+  width: 350px; /* Larger width for each chat box */
+  height: 500px; /* Double the height */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 999999999;
+}
+
+.chat-header {
+  background: #0078ff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  border-radius: 8px 8px 0 0;
+}
+
+.chat-header span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.chat-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.chat-header .close-btn:hover {
+  color: #ddd;
+}
+
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Align messages from other users to the left by default */
+.message-item {
+  margin-bottom: 10px;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Default for other person's messages */
+}
+
+/* Align sent messages (logged-in user's) to the right */
+.message-item.sent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  /* Align all content to the right */
+  max-width: 90%;
+  margin-bottom: 15px;
+}
+
+/* Sender's name (Make sure it's aligned with the message content) */
+.message-sender {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #0078ff;
+  align-self: flex-start; /* Default for other users */
+}
+
+/* Align the sender's name to the right for sent messages */
+.message-item.sent .message-sender {
+  align-self: flex-end; /* Align to the right */
+}
+
+/* Message Content */
+.message-content {
+  background: #e9f5ff;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 75%;
+  word-wrap: break-word;
+  color: #333;
+  margin-left: 5px;
+}
+
+/* When the message is sent by the logged-in user, align to the right */
+.message-item.sent .message-content {
+  background: #dff0d8; /* Adjust the color if needed */
+  align-self: flex-end;  /* Align message content to the right */
+  margin-left: 0;
+  max-width: 75%;
+}
+
+/* Timestamp */
+.timestamp {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+  align-self: flex-start;
+}
+
+/* Align timestamp to the right for sent messages */
+.message-item.sent .timestamp {
+  align-self: flex-end; /* Align timestamp to the right */
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+
+
+
+
+
+/* Message Form */
+.message-form {
+  display: flex;
+  padding: 10px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+}
+
+.message-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: border 0.3s ease;
+}
+
+.message-form input:focus {
+  border: 1px solid #0078ff;
+}
+
+.message-form button {
+  background: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.message-form button:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.message-form button:hover:not(:disabled) {
+  background: #005bb5;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .users-panel {
+    width: 100%;
+    height: 100%; /* Full height for smaller screens */
+  }
+
+  .chat-box {
+    width: 100%;
+  }
+
+  .chat-boxes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

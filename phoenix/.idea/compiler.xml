@@ -10,9 +10,10 @@
         <module name="config-server" />
         <module name="notification" />
         <module name="discovery-server" />
+        <module name="messenger-service" />
+        <module name="keycloakuser" />
         <module name="stock" />
         <module name="gateway" />
-        <module name="keycloakuser" />
       </profile>
     </annotationProcessing>
   </component>
@@ -22,6 +23,7 @@
       <module name="discovery-server" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="keycloakuser" options="-parameters" />
+      <module name="messenger-service" options="-parameters" />
       <module name="notification" options="-parameters" />
       <module name="stock" options="-parameters" />
     </option>

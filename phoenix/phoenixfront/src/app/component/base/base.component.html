@@ -175,3 +175,60 @@
           </div>
         </aside>
         </section>
+
+
+
+        <div class="chat-container">
+          <!-- Floating Chat Icon -->
+          <div class="chat-icon" (click)="toggleUserList()">
+            💬
+          </div>
+        
+          <!-- User List Panel -->
+          <div class="users-panel" [class.open]="isUserListOpen">
+            <div class="panel-header">
+              <h3 style="color: white;">Contacts: </h3>
+              <button class="close-btn" (click)="toggleUserList()">×</button>
+            </div>
+            <ul>
+              <li *ngFor="let user of connectedUsers" (click)="openChatBox(user.nickName, user.fullName)">
+                <span class="user-avatar">{{ user.fullName[0] }}</span>
+                <span class="user-name">{{ user.fullName }}</span>
+                <span
+                  class="status-dot"
+                  [class.online]="user.status === Status.ONLINE"
+                  [class.offline]="user.status === Status.OFFLINE"
+                ></span>
+              </li>
+            </ul>
+          </div>
+        
+          <!-- Active Chat Boxes -->
+          <div class="chat-boxes">
+            <div *ngFor="let chatBox of openChatBoxes" class="chat-box">
+              <div class="chat-header">
+                <span>{{ chatBox.user.fullName }}</span>
+                <button class="close-btn" (click)="closeChatBox(chatBox.user.nickName)">×</button>
+              </div>
+              <div class="chat-messages">
+                <ul>
+                  <li *ngFor="let message of chatBox.messages" class="message-item"
+                  [ngClass]="{ 'sent': message.senderId === loggedInUserId }">
+                  <div class="message-sender">{{ message.senderId }}</div>
+                  <div class="message-content">{{ message.content }}</div>
+                  <div class="timestamp">{{ message.timestamp | date: 'short' }}</div>
+              </li>
+                      </ul>
+              </div>
+              <form (ngSubmit)="sendMessage(chatBox)" class="message-form">
+                <input
+                  [(ngModel)]="chatBox.messageContent"
+                  [name]="'message_' + chatBox.user.nickName"
+                  placeholder="Type your message..."
+                />
+                <button type="submit" [disabled]="!chatBox.messageContent.trim()">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
